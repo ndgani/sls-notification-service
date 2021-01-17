@@ -3,13 +3,10 @@ import AWS from 'aws-sdk';
 const ses = new AWS.SES({ region: 'eu-west-1' });
 
 async function sendMail(event, context) {
-  //only applicable for batch size 1
   const record = event.Records[0];
   console.log('record processing ', record);
-
   const email = JSON.parse(record.body);
-  const { subject, body , recipient } = email;
-  
+  const { subject, body, recipient } = email;  
   const params = {
     Source: 'ndgani@gmail.com',
     Destination: {
@@ -19,7 +16,6 @@ async function sendMail(event, context) {
       Body: {
         Text: {
           Data: body,
-
         },
       },
       Subject: {

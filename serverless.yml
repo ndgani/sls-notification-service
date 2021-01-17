@@ -24,6 +24,7 @@ functions:
     events:
       - sqs:
           arn: ${self:custom.mailQueue.arn}
+          batchSize: 1
 
 custom:
   mailQueue:
