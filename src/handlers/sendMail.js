@@ -6,7 +6,7 @@ async function sendMail(event, context) {
   const record = event.Records[0];
   console.log('record processing ', record);
   const email = JSON.parse(record.body);
-  const { subject, body, recipient } = email;  
+  const { subject, body, recipient } = email;
   const params = {
     Source: 'ndgani@gmail.com',
     Destination: {
